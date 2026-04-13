@@ -127,11 +127,19 @@
       font-family: var(--font-sans);
     }
     .hero-logo {
-      height: 64px;
-      width: auto;
-      margin-bottom: 20px;
-      filter: brightness(0) invert(1);
+      display: none;
+    }
+    .hero-center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      max-width: 70%;
+      height: auto;
+      mix-blend-mode: multiply;
       opacity: 0.92;
+      z-index: 2;
     }
     .hero-sub {
       color: #c5d9c8;
@@ -597,6 +605,7 @@
   <section class="hero">
     <img class="hero-img" src="hero.jpg" alt="ぶしぞうの家 外観">
     <div class="hero-scrim"></div>
+    <img class="hero-center-logo" src="logo.png" alt="ぶしぞうの家">
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span class="hero-line"></span>
