@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="グループホーム ぶしぞうの家 — 障害者向けグループホーム。心の拠り所となる場所で、あなたらしい毎日を。">
+  <title>グループホーム ぶしぞうの家</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:   #1a2e20;
+      --green-mid:    #2c3e35;
+      --green-main:   #3a5a42;
+      --green-light:  #5a8a6a;
+      --green-pale:   #e8f4e8;
+      --green-border: #c8ddc8;
+      --cream:        #f7f5f0;
+      --cream-border: #e0ddd8;
+      --text-primary: #1a2e20;
+      --text-mid:     #3a4e40;
+      --text-muted:   #5a6e5e;
+      --white:        #ffffff;
+      --amber-bg:     #fff4e0;
+      --amber-text:   #7a4e10;
+      --font-serif:   'Noto Serif JP', serif;
+      --font-sans:    'Noto Sans JP', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-primary);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--cream-border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-logo img {
+      height: 38px;
+      width: auto;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav a {
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--green-main); }
+    .nav-cta {
+      background: var(--green-mid);
+      color: var(--white) !important;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 24px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--green-main) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(20, 35, 25, 0.72) 0%,
+        rgba(20, 35, 25, 0.40) 60%,
+        rgba(20, 35, 25, 0.15) 100%
+      );
+    }
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 56px;
+      max-width: 640px;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hero-line {
+      width: 28px;
+      height: 1px;
+      background: #7aba8a;
+    }
+    .hero-eyebrow-text {
+      font-size: 12px;
+      color: #9acca0;
+      letter-spacing: 0.1em;
+      font-family: var(--font-sans);
+    }
+    .hero-logo {
+      height: 64px;
+      width: auto;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+    .hero-sub {
+      color: #c5d9c8;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 32px;
+      font-family: var(--font-serif);
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--green-light);
+      color: var(--white);
+      border: none;
+      padding: 13px 28px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--green-main); }
+    .btn-outline-hero {
+      background: transparent;
+      color: #e8dfc8;
+      border: 1px solid rgba(200, 220, 200, 0.5);
+      padding: 13px 28px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline-hero:hover {
+      border-color: rgba(200, 220, 200, 0.8);
+      color: #fff;
+    }
+
+    /* ── NOTICE BAR ── */
+    .notice-bar {
+      background: var(--green-pale);
+      border-bottom: 1px solid var(--green-border);
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .notice-tag {
+      background: var(--green-mid);
+      color: #c5ddc8;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .notice-text {
+      font-size: 14px;
+      color: #2c4a35;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 72px 40px;
+    }
+    .section-white { background: var(--white); }
+    .section-dark  { background: var(--green-mid); }
+
+    .section-label {
+      font-size: 11px;
+      color: var(--green-light);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.85;
+      max-width: 560px;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--cream);
+      border: 1px solid var(--cream-border);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .feat-num {
+      font-size: 11px;
+      color: var(--green-light);
+      font-weight: 500;
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+    }
+    .feat-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .feat-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ── FLOW SECTION ── */
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .step {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 22px 18px;
+    }
+    .step-num {
+      font-size: 11px;
+      color: #7aba8a;
+      font-weight: 500;
+      margin-bottom: 10px;
+      letter-spacing: 0.1em;
+    }
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 500;
+      color: #e8dfc8;
+      margin-bottom: 8px;
+    }
+    .step-text {
+      font-size: 13px;
+      color: #9ab09e;
+      line-height: 1.75;
+    }
+    .section-dark .section-label { color: #7aba8a; }
+    .section-dark .section-title { color: #e8dfc8; font-family: var(--font-serif); }
+    .section-dark .section-sub   { color: #9ab09e; }
+
+    /* ── INFO CARDS ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--cream-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .info-card-inner {
+      padding: 28px 24px 20px;
+    }
+    .info-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .tag-green { background: #e0f0e3; color: #1e5c2c; }
+    .tag-amber { background: var(--amber-bg); color: var(--amber-text); }
+    .info-card-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .info-card-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+    .info-card-foot {
+      border-top: 1px solid #eaf0ea;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .info-link {
+      font-size: 14px;
+      color: var(--green-light);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .info-link:hover { color: var(--green-main); }
+    .info-meta {
+      font-size: 12px;
+      color: #9aaa9a;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--green-dark);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .cta-logo {
+      height: 56px;
+      width: auto;
+      margin: 0 auto 24px;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.80;
+    }
+    .cta-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: #e8dfc8;
+      margin-bottom: 10px;
+    }
+    .cta-sub {
+      font-size: 15px;
+      color: #9ab09e;
+      margin-bottom: 36px;
+      line-height: 1.9;
+    }
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--green-dark);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-white:hover { background: #f0f7f0; }
+    .btn-ghost {
+      background: transparent;
+      color: #c5ddc8;
+      border: 1px solid rgba(180, 210, 185, 0.4);
+      padding: 14px 32px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(180, 210, 185, 0.8); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #111e16;
+      padding: 56px 40px 28px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand {
+      flex: 0 0 260px;
+    }
+    .footer-brand img {
+      height: 34px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.65;
+      margin-bottom: 14px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      color: #5a7a60;
+      line-height: 1.85;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 56px;
+    }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #7a9a80;
+      margin-bottom: 14px;
+      letter-spacing: 0.05em;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li { margin-bottom: 9px; }
+    .footer-links a {
+      font-size: 13px;
+      color: #4a6a52;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #7a9a80; }
+    .footer-bottom {
+      border-top: 1px solid #1e3825;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .copyright {
+      font-size: 12px;
+      color: #3a5a42;
+    }
+    .footer-policy {
+      font-size: 12px;
+      color: #3a5a42;
+      text-decoration: none;
+    }
+    .footer-policy:hover { color: #5a7a60; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .header { padding: 0 20px; }
+      .nav { gap: 16px; }
+      .nav a:not(.nav-cta) { display: none; }
+      .hero { height: 480px; }
+      .hero-content { padding: 40px 28px; }
+      .hero-logo { height: 48px; }
+      .section { padding: 52px 20px; }
+      .notice-bar { padding: 12px 20px; }
+      .features { grid-template-columns: 1fr; }
+      .flow-steps { grid-template-columns: 1fr 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 60px 20px; }
+      .footer { padding: 40px 20px 20px; }
+      .footer-top { flex-direction: column; gap: 32px; }
+      .footer-nav { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <a href="/" class="header-logo">
+      <img src="logo.png" alt="グループホーム ぶしぞうの家">
+    </a>
+    <nav class="nav">
+      <a href="#features">施設紹介</a>
+      <a href="#admission">入居案内</a>
+      <a href="#recruit">採用情報</a>
+      <a href="#about">会社概要</a>
+      <a href="#contact" class="nav-cta">見学のご予約</a>
+    </nav>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <img class="hero-img" src="hero.jpg" alt="ぶしぞうの家 外観">
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-line"></span>
+        <span class="hero-eyebrow-text">GROUP HOME · 障害者向けグループホーム</span>
+      </div>
+      <img class="hero-logo" src="logo.png" alt="ぶしぞうの家">
+      <p class="hero-sub">
+        心の拠り所となる場所で、あなたらしい毎日を。<br>
+        一人ひとりに寄り添った暮らしを、ともに育みます。
+      </p>
+      <div class="hero-btns">
+        <a href="#admission" class="btn-primary">入居のご案内 →</a>
+        <a href="#features" class="btn-outline-hero">施設を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お知らせバー -->
+  <div class="notice-bar">
+    <span class="notice-tag">お知らせ</span>
+    <span class="notice-text">新棟オープン予定。入居者・スタッフ募集中です。詳しくはお問い合わせください。</span>
+  </div>
+
+  <!-- 施設の特徴 -->
+  <section id="features" class="section section-white">
+    <p class="section-label">OUR FEATURES</p>
+    <h2 class="section-title">ぶしぞうの家の3つの特徴</h2>
+    <p class="section-sub">地域に根ざした家庭的な環境で、自分らしい生活を支援します。</p>
+    <div class="features">
+      <div class="feature-card">
+        <p class="feat-num">01</p>
+        <h3 class="feat-title">家庭的な雰囲気</h3>
+        <p class="feat-text">一戸建ての住まいで、アットホームな環境。スタッフとの距離も近く、安心して生活できます。</p>
+      </div>
+      <div class="feature-card">
+        <p class="feat-num">02</p>
+        <h3 class="feat-title">個別支援の充実</h3>
+        <p class="feat-text">一人ひとりの障害特性・生活リズムに合わせた個別支援計画を作成し、丁寧にサポートします。</p>
+      </div>
+      <div class="feature-card">
+        <p class="feat-num">03</p>
+        <h3 class="feat-title">地域とのつながり</h3>
+        <p class="feat-text">地域の行事・活動にも積極的に参加。社会とのつながりを大切にした暮らしを応援します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入居の流れ -->
+  <section id="admission" class="section section-dark">
+    <p class="section-label">ADMISSION FLOW</p>
+    <h2 class="section-title">入居までの流れ</h2>
+    <p class="section-sub">お問い合わせから入居まで、丁寧にサポートします。</p>
+    <div class="flow-steps">
+      <div class="step">
+        <p class="step-num">STEP 01</p>
+        <h3 class="step-title">お問い合わせ</h3>
+        <p class="step-text">電話・メール・LINEでお気軽にご連絡ください。</p>
+      </div>
+      <div class="step">
+        <p class="step-num">STEP 02</p>
+        <h3 class="step-title">見学・体験入居</h3>
+        <p class="step-text">施設をご覧いただき、雰囲気や生活環境を確認します。</p>
+      </div>
+      <div class="step">
+        <p class="step-num">STEP 03</p>
+        <h3 class="step-title">書類・面談</h3>
+        <p class="step-text">必要書類の準備と、担当者との入居前面談を行います。</p>
+      </div>
+      <div class="step">
+        <p class="step-num">STEP 04</p>
+        <h3 class="step-title">入居開始</h3>
+        <p class="step-text">準備が整い次第、安心して新生活をスタートできます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入居・採用案内 -->
+  <section class="section">
+    <p class="section-label">INFORMATION</p>
+    <h2 class="section-title">入居・採用のご案内</h2>
+    <p class="section-sub">入居を検討されている方、一緒に働きたい方へ。</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-inner">
+          <span class="info-tag tag-green">入居案内</span>
+          <h3 class="info-card-title">入居をご検討の方へ</h3>
+          <p class="info-card-text">対象となる方、利用料金、サービス内容について詳しくご説明しています。まずはお気軽にご相談ください。</p>
+        </div>
+        <div class="info-card-foot">
+          <a href="#contact" class="info-link">詳しく見る →</a>
+          <span class="info-meta">見学随時受付中</span>
+        </div>
+      </div>
+      <div class="info-card" id="recruit">
+        <div class="info-card-inner">
+          <span class="info-tag tag-amber">採用情報</span>
+          <h3 class="info-card-title">スタッフ募集中</h3>
+          <p class="info-card-text">福祉のお仕事が初めての方も歓迎。未経験者向け研修制度を整えています。一緒に働きましょう。</p>
+        </div>
+        <div class="info-card-foot">
+          <a href="#contact" class="info-link">求人を見る →</a>
+          <span class="info-meta">正社員・パート募集</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="cta-section">
+    <img class="cta-logo" src="logo.png" alt="ぶしぞうの家">
+    <h2 class="cta-title">まずは見学においでください</h2>
+    <p class="cta-sub">
+      「どんな場所か見てみたい」という方もお気軽にどうぞ。<br>
+      スタッフが丁寧にご案内します。
+    </p>
+    <div class="cta-btns">
+      <a href="tel:00-0000-0000" class="btn-white">お電話で予約する</a>
+      <a href="mailto:info@bushizo-no-ie.jp" class="btn-ghost">メールで問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer id="about" class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.png" alt="ぶしぞうの家">
+        <p class="footer-desc">
+          心の拠り所となる場所。<br>
+          障害のある方が安心して暮らせる<br>グループホームです。
+        </p>
+      </div>
+      <nav class="footer-nav">
+        <div>
+          <p class="footer-col-title">コンテンツ</p>
+          <ul class="footer-links">
+            <li><a href="#features">施設紹介</a></li>
+            <li><a href="#admission">入居案内</a></li>
+            <li><a href="#recruit">採用情報</a></li>
+            <li><a href="#about">会社概要</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">お問い合わせ</p>
+          <ul class="footer-links">
+            <li><a href="tel:00-0000-0000">電話でのご相談</a></li>
+            <li><a href="mailto:info@bushizo-no-ie.jp">メールフォーム</a></li>
+            <li><a href="#contact">見学のご予約</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2025 グループホーム ぶしぞうの家</p>
+      <a href="#" class="footer-policy">プライバシーポリシー</a>
+    </div>
+  </footer>
+
+</body>
+</html>
